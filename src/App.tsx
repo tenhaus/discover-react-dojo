@@ -1,17 +1,12 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import { PersonalProfile } from './features/personal-profile/PersonalProfile';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      <PersonalProfile />
+
+      <footer className="App-footer">
         <span>
           <span>Learn </span>
           <a
@@ -50,7 +45,7 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </footer>
     </div>
   );
 }
