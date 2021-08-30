@@ -1,10 +1,25 @@
 import { PersonalProfile } from './features/personal-profile/PersonalProfile';
+import { PersonalProfileSaved } from './features/personal-profile/PersonalProfileSaved';
 import './App.css';
+import { useAppDispatch } from './app/hooks';
+import {
+  loadProfile,
+  isProfileSaved,
+} from './features/personal-profile/personalProfileSlice';
+import { useSelector } from 'react-redux';
 
 function App() {
+  // For this reference application we will simply
+  // load the profile once when the application starts
+  const dispatch = useAppDispatch();
+  dispatch(loadProfile());
+
+  const isPersonalProfileSaved = useSelector(isProfileSaved);
+
   return (
     <div className="App">
-      <PersonalProfile />
+      {!isPersonalProfileSaved && <PersonalProfile />}
+      {isPersonalProfileSaved && <PersonalProfileSaved />}
 
       <footer className="App-footer">
         <span>
